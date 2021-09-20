@@ -4,12 +4,12 @@ import * as yup from "yup";
 import axios from "axios"
 
 const Schema = yup.object().shape({
-  email: yup.string().required("Email is Required"),
+  username: yup.string().required("Email is Required"),
   password: yup.string().required("Password is Required"),
 });
 
 const defaultVal = {
-    email: "",
+    username: "",
     password: "",
   }
 
@@ -18,7 +18,7 @@ function loginForm() {
   const [loginState, setloginState] = useState(defaultVal);
   const [isValid, setIsValid] = useState(true);
   const [err, setErr] = useState({
-    email: "",
+    username: "",
     password: ""
   });
 
@@ -65,16 +65,16 @@ function loginForm() {
     <div>
       <h2>Login</h2>
       <form onSubmit={formSubmit}>
-          <label htmlFor="email">Email:</label>
+           <label htmlFor="username">Username:</label>
             <input
-              type="email"
-              placeholder="Email"
-              id="email"
-              name="email"
-              value={loginState.email}
+              type="text"
+              placeholder="Username"
+              id="username"
+              name="username"
+              value={loginState.username}
               onChange={inputChange}
             />
-            {err.email.length > 0 ? <p>{err.email}</p> : null}
+            {err.username.length > 0 ? <p>{err.username}</p> : null}
           
         
         

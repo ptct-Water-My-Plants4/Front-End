@@ -4,9 +4,9 @@ import * as yup from "yup";
 import axios from "axios"
 
 const Schema = yup.object().shape({
-  username: yup.string().required("Email is Required"),
+  username: yup.string().required("Username is Required"),
   password: yup.string().required("Password is Required"),
-  phonenumber: yup.string().required("Please put in a Valid Phone Number")
+  phonenumber: yup.string().required("Please use a Valid Phone Number")
 });
 
 const defaultVal = {

@@ -67,7 +67,7 @@ export default function PlantForm(props) {
     //collect new formValues
     const newPlant = {
       id: 1,
-      nickname: formValues.nickName.trim(),
+      nickname: formValues.nickname.trim(),
       species: formValues.species.trim(),
       h20frequency: formValues.h20frequency.trim(),
     };

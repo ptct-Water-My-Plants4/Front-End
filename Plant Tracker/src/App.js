@@ -10,6 +10,7 @@ import axios from "axios";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import Signup from "./components/Signup";
+import PlantForm from "./components/PlantForm";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Link to="/">Home</Link>
           <Link to="/login">Log In</Link>
           <Link to="/signup">Sign Up</Link>
+          <Link to="/add">Add Plant</Link>
           <Link to="/" onClick={logout}>
             Log Out
           </Link>
@@ -49,7 +51,8 @@ function App() {
         <Route path="/signup">
           <Signup />
           </Route>
-        <Route path="/signup">
+        <Route path="/add">
+          <PlantForm />
         </Route>
       </Switch>
     </div>

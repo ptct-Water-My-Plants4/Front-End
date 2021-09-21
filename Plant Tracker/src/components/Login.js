@@ -26,7 +26,7 @@ const Login = (props) => {
     e.preventDefault();
     axios
       .post(
-        "https://ptct-secret-recipes.herokuapp.com/api/auth/login",
+        "https://fakeapi.com",
         formValues
       )
       .then((res) => {

@@ -11,6 +11,7 @@ import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import Signup from "./components/Signup";
 import PlantForm from "./components/PlantForm";
+import PlantList from "./components/PlantList";
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Link to="/login">Log In</Link>
           <Link to="/signup">Sign Up</Link>
           <Link to="/add">Add Plant</Link>
+          <Link to="/plant-list">My Plants</Link>
           <Link to="/" onClick={logout}>
             Log Out
           </Link>
@@ -53,6 +55,9 @@ function App() {
           </Route>
         <Route path="/add">
           <PlantForm />
+        </Route>
+        <Route path="/plant-list">
+          <PlantList plants={list} setPlants={setList} />
         </Route>
       </Switch>
     </div>

@@ -26,7 +26,7 @@ const Login = (props) => {
     e.preventDefault();
     axios
       .post(
-        "https://fakeapi.com",
+        "https://reqres.in/api/login",
         formValues
       )
       .then((res) => {

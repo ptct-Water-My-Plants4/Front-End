@@ -53,12 +53,12 @@ function App() {
         <Route path="/signup">
           <Signup />
           </Route>
-        <Route path="/add">
-          <PlantForm />
-        </Route>
-        <Route path="/plant-list">
+        <PrivateRoute path="/add">
+        <PlantForm list={list} setList={setList} />
+        </PrivateRoute>
+        <PrivateRoute path="/plant-list">
           <PlantList plants={list} setPlants={setList} />
-        </Route>
+        </PrivateRoute>
       </Switch>
     </div>
   );

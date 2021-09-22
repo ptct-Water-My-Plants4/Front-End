@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import * as yup from "yup";
-import axios from "axios"
 
 const Schema = yup.object().shape({
   username: yup.string().required("Username is Required"),
@@ -25,7 +24,7 @@ function Signup() {
     phonenumber: "",
   });
 
-  const history = useHistory();
+  // const history = useHistory();
 
   useEffect(() => {
     Schema.isValid(signinState).then((valid) => {

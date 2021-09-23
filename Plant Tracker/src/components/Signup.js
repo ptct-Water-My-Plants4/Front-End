@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import { useHistory } from "react-router-dom";
+import axios from "axios";
 import * as yup from "yup";
 
 const Schema = yup.object().shape({
@@ -34,15 +35,31 @@ function Signup() {
 
 
   const formSubmit = (e) => {
-    e.preventDefault();
-    // axios.post(, signinState)
-    // .then(res => {
-    //   localStorage.setItem("token", res.data.token);
-    //   history.push();
-    // })
-    // .catch(err => {console.log(err)});
-    setsigninState(defaultVal)
+    e.preventDefault();  
+  
+
+  const newUser = {
+    username: signinState.username.trim(),
+    password: signinState.password.trim(),
+    phonenumber: signinState.phonenumber.trim(),
   };
+
+  axios
+  .post(
+    "https://water-my-plants4.herokuapp.com/api/auth/register",
+    newUser
+       )
+  .then((res) => {
+    console.log("NEW RESPONSE", res);
+                 })
+  .catch((err) => {
+    debugger;
+    console.log(err);
+                  });
+  setsigninState(defaultVal);
+
+                };
+
 
   const validate = (e) => {
     yup
@@ -62,6 +79,9 @@ function Signup() {
     validate(e);
     setsigninState({ ...signinState, [e.target.name]: e.target.value });
   };
+
+
+
 
   return (
     <div>
@@ -109,6 +129,6 @@ function Signup() {
       </form>
     </div>
   );
-}
+  }
 
 export default Signup;

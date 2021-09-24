@@ -14,8 +14,8 @@ export default function PlantCard(props) {
     <div>
       <h2>{plant.nickname}</h2>
       <p>Species {plant.species}</p>
-      <p>id: {plant.id}</p>
-      <h3>must be watered: {plant.h20frequency}</h3>
+      <p>id: {plant.plant_id}</p>
+      <h3>must be watered: {plant.h2oFrequency}</h3>
       {!edit ? (
         <div>
           <button onClick={editToggler}>Edit</button>

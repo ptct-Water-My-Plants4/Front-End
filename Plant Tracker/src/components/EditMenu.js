@@ -6,19 +6,19 @@ export default function EditMenu(props) {
   //deleted edit from props for linter
 
   const initialFormValues = {
-    id: plant.id,
+    plant_id: plant.plant_id,
     nickname: plant.nickname,
     species: plant.species,
-    h20frequency: plant.h20frequency,
+    h2oFrequency: plant.h2oFrequency,
   };
 
   const [formValues, setFormValues] = useState(initialFormValues);
 
   const editedPlant = {
-    id: 1,
+    plant_id: 1,
     nickname: formValues.nickname.trim(),
     species: formValues.species.trim(),
-    h20frequency: formValues.h20frequency.trim(),
+    h2oFrequency: formValues.h2oFrequency.trim(),
   };
 
   const onChange = (evt) => {
@@ -31,13 +31,13 @@ export default function EditMenu(props) {
     e.preventDefault();
     axios
       .put(
-        `https://fakeapi.com`,
+        `https://ptct-water-my-plants4.herokuapp.com/api/plants/${plant.plant_id}`,
         editedPlant
       )
       .then((res) => {
         console.log("Edited:", res);
         axios
-          .get("https://fakeapi.com")
+          .get("https://ptct-water-my-plants4.herokuapp.com/api/plants/")
           .then((res) => setPlants(res.data))
           .catch((err) => console.log(err));
       })
@@ -59,7 +59,7 @@ export default function EditMenu(props) {
           <input
             type="text"
             name="name"
-            value={formValues.id}
+            value={formValues.plant_id}
             onChange={onChange}
           />
         </label>
@@ -78,9 +78,20 @@ export default function EditMenu(props) {
         <label>
           Plant Species:
           <br />
-          <select
+          <input
+            type="text"
             name="species"
             value={formValues.species}
+            onChange={onChange}
+          />
+        </label>
+        <br />
+        <label>
+          Watering Freqeuency:
+          <br />
+          <select
+            name="h2oFrequency"
+            value={formValues.h2oFrequency}
             onChange={onChange}
           >
             <option value="">-- select watering frequency --</option>

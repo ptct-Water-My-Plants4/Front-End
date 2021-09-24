@@ -16,11 +16,11 @@ export default function PlantList(props) {
 
   const deleteHandler = (id) => {
     axios
-      .delete(`https://fakeapi.com`)
+      .delete("https://ptct-water-my-plants4.herokuapp.com/api/plants/${plant_id}")
       .then((res) => {
         console.log("Deleted:", res);
         axios
-          .get("https://fakeapi.com")
+          .get("https://ptct-water-my-plants4.herokuapp.com/api/plants")
           .then((res) => setPlants(res.data))
           .catch((err) => console.log(err));
       })

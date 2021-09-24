@@ -8,18 +8,16 @@ import schema from "../Schema/PlantFormSchema";
 
 //Initial form state
 const initialFormValues = {
-  id: "",
   nickname: "",
   species: "",
-  h20Frequency: "",
+  h2oFrequency: "",
 };
 
 //initial form errors
 const initialFormErrors = {
-    id: "",
     nickname: "",
     species: "",
-    h20Frequency: "",
+    h2oFrequency: "",
 };
 
 //disable submit button
@@ -66,19 +64,20 @@ export default function PlantForm(props) {
 
     //collect new formValues
     const newPlant = {
-      id: 1,
+      plant_id: 1,
       nickname: formValues.nickname.trim(),
       species: formValues.species.trim(),
-      h20frequency: formValues.h20frequency.trim(),
+      h2oFrequency: formValues.h2oFrequency.trim(),
+      image: "",
     };
 
     //post newPlant to endpoint, USING FAKE API AS PLACEHOLDER
     axios
-      .post("https://fakeapi.com", newPlant)
+      .post("https://ptct-water-my-plants4.herokuapp.com/api/plants", newPlant)
       .then((res) => {
         console.log("NEW RESPONSE", res);
         axios
-          .get("https://fakeapi.com")
+          .get("https://ptct-water-my-plants4.herokuapp.com/api/plants")
           .then((res) => setList(res.data))
           .catch((err) => console.log(err));
       })
@@ -98,22 +97,6 @@ export default function PlantForm(props) {
         <section className="plant-form-section">
           <h2>Add a new plant</h2>
           <form onSubmit={onSubmit}>
-              {/* id input */}
-              <div className="input-div even">
-                <div className="error-div">{formErrors.id}</div>
-                <label id="id">id</label>
-                <input
-                  id="id"
-                  type="text"
-                  name="id"
-                  value={formValues.id}
-                  onChange={onChange}
-                  placeholder="create an id"
-                  maxLength="10"
-                  size="10"
-                />
-              </div>
-
               {/* nickname input */}
               <div className="input-div odd">
                 <div className="error-div">{formErrors.nickname}</div>
@@ -148,12 +131,12 @@ export default function PlantForm(props) {
 
             {/* h20 frequency dropdown */}
              <div className="input-div even">
-                <div className="error-div">{formErrors.h20frequency}</div>
-                <label id="h20frequency">Water Freqeuncy</label>
+                <div className="error-div">{formErrors.h2oFrequency}</div>
+                <label id="h2oFrequency">Water Freqeuncy</label>
                 <select
-                  id="h20frequency"
-                  name="h20frequency"
-                  value={formValues.h20frequency}
+                  id="h2oFrequency"
+                  name="h2oFrequency"
+                  value={formValues.h2ofrequency}
                   onChange={onChange}
                 >
                   <option value="">-- select watering frequency --</option>
@@ -165,7 +148,7 @@ export default function PlantForm(props) {
                   <option value="monthly">Monthly</option>
                 </select>
               </div>
-              <button disabled={disabled}>Submit Recipe</button>
+              <button disabled={disabled}>Submit Plant</button>
           </form>
         </section>
     </div>

@@ -6,13 +6,13 @@ import * as yup from "yup";
 const Schema = yup.object().shape({
   username: yup.string().required("Username is Required"),
   password: yup.string().required("Password is Required"),
-  phonenumber: yup.string().required("Please use a Valid Phone Number")
+  phoneNumber: yup.string().required("Please use a Valid Phone Number")
 });
 
 const defaultVal = {
     username: "",
     password: "",
-    phonenumber: "",
+    phoneNumber: "",
   }
 
 
@@ -22,7 +22,7 @@ function Signup() {
   const [err, setErr] = useState({
     username: "",
     password: "",
-    phonenumber: "",
+    phoneNumber: "",
   });
 
   // const history = useHistory();
@@ -41,12 +41,12 @@ function Signup() {
   const newUser = {
     username: signinState.username.trim(),
     password: signinState.password.trim(),
-    phonenumber: signinState.phonenumber.trim(),
+    phoneNumber: signinState.phoneNumber.trim(),
   };
 
   axios
   .post(
-    "https://water-my-plants4.herokuapp.com/api/auth/register",
+    "https://ptct-water-my-plants4.herokuapp.com/api/auth/register",
     newUser
        )
   .then((res) => {
@@ -112,16 +112,16 @@ function Signup() {
             {err.password.length > 0 ? <p>{err.password}</p> : null}
 
 
-            <label htmlFor="phonenumber">Phone Number:</label>
+            <label htmlFor="phoneNumber">Phone Number:</label>
             <input
             type="text"
             placeholder="Phone #"
-            id="phonenumber"
-            name="phonenumber"
-            value={signinState.phonenumber}
+            id="phoneNumber"
+            name="phoneNumber"
+            value={signinState.phoneNumber}
             onChange={inputChange}
             />
-            {err.phonenumber.length > 0 ? <p>{err.phonenumber}</p> : null}
+            {err.phoneNumber.length > 0 ? <p>{err.phoneNumber}</p> : null}
           
         <button type="submit" disabled={isValid}>
           Sign Up

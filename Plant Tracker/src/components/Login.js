@@ -26,7 +26,7 @@ const Login = (props) => {
     e.preventDefault();
     axios
       .post(
-        "https://water-my-plants4.herokuapp.com/api/auth/login",
+        "https://ptct-water-my-plants4.herokuapp.com/api/auth/login",
         formValues
       )
       .then((res) => {

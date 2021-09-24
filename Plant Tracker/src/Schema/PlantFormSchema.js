@@ -1,18 +1,15 @@
 import * as yup from "yup";
 
 export default yup.object().shape({
-  id: yup
-    .string()
-    .required("Plant id required"),
 
   nickname: yup.string().required("Plant Name required")
   .min(3, "name must be at least 3 characters"),
-  h20frequency: yup
+  h2oFrequency: yup
     .string()
     .required("Select a watering frequency")
     .oneOf(
       [
-        "Daily",
+        "daily",
         "every other day",
         "weekly",
         "twice a week",

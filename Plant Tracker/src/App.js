@@ -12,7 +12,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Signup from "./components/Signup";
 import PlantForm from "./components/PlantForm";
 import PlantList from "./components/PlantList";
-
+import EditUser from "./components/UserAccount";
 
 function App() {
   const [list, setList] = useState([]);
@@ -34,19 +34,17 @@ function App() {
         <header>
         <h1>Plant Tracker</h1>
         <nav>
-          <Link to="/login">Log In</Link>
           <Link to="/signup">Sign Up</Link>
           <Link to="/add">Add Plant</Link>
           <Link to="/plant-list">My Plants</Link>
+          <Link to="/edit-user">My Account</Link>
+          <Link to="/login">Log In</Link>
           <Link to="/" onClick={logout}>
             Log Out
           </Link>
         </nav>
         </header>
       <Switch>
-        <Route path="/login">
-          <Login />
-        </Route>
         <Route path="/signup">
           <Signup />
           </Route>
@@ -56,6 +54,12 @@ function App() {
         <PrivateRoute path="/plant-list">
           <PlantList plants={list} setPlants={setList} />
         </PrivateRoute>
+        <PrivateRoute path="/edit-user">
+          <EditUser/>
+          </PrivateRoute>
+        <Route path="/login">
+          <Login />
+        </Route>
       </Switch>
     </div>
   );

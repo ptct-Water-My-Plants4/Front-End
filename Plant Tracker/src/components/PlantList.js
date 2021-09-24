@@ -29,15 +29,6 @@ export default function PlantList(props) {
 
   return (
     <div>
-     <div className="search">
-        <input
-          type="text"
-          placeholder="Search by plant name or species"
-          name="search"
-          value={searchTerm}
-          onChange={change}
-        />
-      </div>
       <div className="plantListContainer">
         {plants
           .filter((plant) => {

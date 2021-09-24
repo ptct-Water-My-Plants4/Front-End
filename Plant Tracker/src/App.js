@@ -18,7 +18,7 @@ function App() {
   const [list, setList] = useState([]);
   useEffect(() => {
     axios
-      .get("")
+      .get("https://ptct-water-my-plants4.herokuapp.com/api/plants")
       .then((res) => {
         setList(res.data);
       })

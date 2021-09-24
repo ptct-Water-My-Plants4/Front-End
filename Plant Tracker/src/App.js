@@ -34,7 +34,6 @@ function App() {
         <header>
         <h1>Plant Tracker</h1>
         <nav>
-          <Link to="/">Home</Link>
           <Link to="/login">Log In</Link>
           <Link to="/signup">Sign Up</Link>
           <Link to="/add">Add Plant</Link>
@@ -45,8 +44,6 @@ function App() {
         </nav>
         </header>
       <Switch>
-        <Route exact path="/">
-        </Route>
         <Route path="/login">
           <Login />
         </Route>

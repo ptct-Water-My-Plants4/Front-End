@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 // import { useHistory } from "react-router-dom";
 import axios from "axios";
 import * as yup from "yup";
-import "../../App.css"
+// import "../../App.css"
 
 const Schema = yup.object().shape({
   username: yup.string().required("Username is Required"),

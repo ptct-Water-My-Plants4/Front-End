@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import * as yup from "yup";
 import schema from "../Schema/PlantFormSchema";
-import "../../App.css"
+// import "../../App.css"
 
 
 

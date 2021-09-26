@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // import { useHistory } from "react-router-dom";
 import axios from "axios";
 import * as yup from "yup";
+import "../../App.css"
 
 const Schema = yup.object().shape({
   username: yup.string().required("Username is Required"),
@@ -109,7 +110,7 @@ function Signup() {
               value={signinState.password}
               onChange={inputChange}
             />
-            {err.password.length > 0 ? <p>{err.password}</p> : null}
+            {err.password.length > 0 ? <p className="error">{err.password}</p> : null}
 
 
             <label htmlFor="phoneNumber">Phone Number:</label>

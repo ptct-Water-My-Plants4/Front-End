@@ -7,16 +7,22 @@ export default function PlantList(props) {
   const { plants, setPlants } = props;
   console.log(plants);
 
-  //Search state
+  // Search state if/when search function is implemented
   const [searchTerm, setSearchTerm] = useState("");
-  //search onChange Helper
   const change = (evt) => {
     setSearchTerm(evt.target.value);
   };
 
-  const deleteHandler = (id) => {
+if (change === 0) {
+  return null
+}
+
+
+
+
+  const deleteHandler = () => {
     axios
-      .delete("https://ptct-water-my-plants4.herokuapp.com/api/plants/${plant_id}")
+      .delete(`https://ptct-water-my-plants4.herokuapp.com/api/plants/${plants.plant_id}`)
       .then((res) => {
         console.log("Deleted:", res);
         axios

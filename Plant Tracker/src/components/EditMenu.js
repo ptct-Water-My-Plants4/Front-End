@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 export default function EditMenu(props) {
   const { plant, toggleEdit, setPlants } = props;
-  //deleted edit from props for linter
+ 
 
   const initialFormValues = {
     plant_id: plant.plant_id,
